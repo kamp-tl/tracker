@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style.css"/>
+    <script src="./scripts/script.js" defer></script>
     <title>Fitness Tracker</title>
 </head>
 <body>
@@ -12,12 +13,20 @@
             <div id="name">Tracker Name</div>
             <img/>
         </div>
-        <div id="buttonCase">
+        <section id="buttonCase">
             <div id="dayTrack">Training for X Days</div>
-          <button class="button">Routine</button>
-          <button class="button">History</button>
-          <button class="button">Skills</button>
-        </div>
+          <button onclick=showRoutine() id="button1" class="button">Routine</button>
+          <!-- <a href="./pages/history.html" >History</a> -->
+          <button id="button2" class="button">History</button>
+          <button id="button3" class="button">Skills</button>
+        </section>
+        <section id="hiddenCase">
+            <button id="hiddenbutton1" class="button" onclick="window.location.href='./pages/push.html'">Push</button>
+            <button id="hiddenbutton2" class="button" onclick="window.location.href='./pages/pull.html'">Pull</button>
+            <button id="hiddenbutton3" class="button" onclick="window.location.href='./pages/legs.html'">Legs</button>
+            <button id="hiddenbutton3" class="button" onclick="window.location.href='./pages/require.html'">Require</button>
+            <button onclick=flipback() id="back" class="miniButton">back</button>
+        </section>
     </div>
     <header>
         

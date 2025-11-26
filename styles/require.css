@@ -1,0 +1,25 @@
+h1 {
+    color: #495867;
+    text-shadow:
+    -1px -1px 0 #FE5F55,
+    1px -1px 0 #FE5F55,
+    -1px 1px 0 #FE5F55, 
+    1px 1px 0 #FE5F55;   
+}
+
+section {
+    display:flex;
+}
+#textSection {
+    display:flex;
+    flex-direction: column;
+}
+
+#JPGimage:hover {
+    content: url(../images/760856_jpeg_512x512.png);
+
+}
+
+#bananaGif:hover {
+    content: url(../images/3903678.png);
+}
