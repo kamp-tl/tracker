@@ -1,3 +1,6 @@
+html, body {
+    background-color: #eae2b7;
+}
 #bounds {
     width:360px;
     height:780px;
@@ -5,6 +8,7 @@
     margin: auto;
     display: flex;
     flex-direction: column;
+    background-color: #d62828;
 }
 
 #hero {
@@ -23,16 +27,21 @@
     border: 1px solid black;
     justify-content: center;
     align-items: center;
+    background-color: #fcbf49;
 }
 .button { 
     padding:15px 50px 15px 50px;
     margin:25px;
+    background-color: #fcbf49;
 }
 
 .miniButton {
     padding:0 ;
     align-self: flex-start;
     margin-top: auto;
+    margin-left:5%;
+    margin-bottom: 5%;
+    background-color: #fcbf49;
 }
 
 #buttonCase, #hiddenCase {
@@ -48,6 +57,12 @@
 #dayTrack {
     align-self: flex-start;
     margin-left: 10px;
+    color: #fcbf49;
+    text-shadow:
+    -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black,
+    1px 1px 0 black; 
 }
 
 #hiddenCase {
@@ -76,7 +91,8 @@
     width: 75px;
     margin: auto 10px 10px auto; 
     border-radius: 50%;
-    align-self:flex-end
+    align-self:flex-end;
+    background-color:#fcbf49;
 }
 
 #back {
@@ -92,4 +108,7 @@
 #textWall {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    font-size:x-large;
+    text-transform: capitalize;
 }
