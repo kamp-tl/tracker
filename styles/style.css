@@ -3,6 +3,8 @@
     height:780px;
     border:1px solid black;
     margin: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 #hero {
@@ -29,7 +31,8 @@
 
 .miniButton {
     padding:0 ;
-    margin-left:-80%;
+    align-self: flex-start;
+    margin-top: auto;
 }
 
 #buttonCase, #hiddenCase {
@@ -49,5 +52,44 @@
 
 #hiddenCase {
     display: none;
-    gap:5px;
+}
+
+#navCase {
+    display: flex;
+    justify-content: space-between;
+}
+
+#hiddenTextarea {
+    display: none;
+    justify-content: center;
+    margin-top:auto;
+}
+
+#textArea {
+    height:150px;
+    width: 300px;
+    margin:5%;
+}
+
+#plus {
+    height: 75px;
+    width: 75px;
+    margin: auto 10px 10px auto; 
+    border-radius: 50%;
+    align-self:flex-end
+}
+
+#back {
+    margin-left: 5%;
+    margin-top :auto;
+    margin-bottom: auto;
+}
+
+#spacer {
+    flex-grow: 1;
+}
+
+#textWall {
+    display: flex;
+    flex-direction: column;
 }
