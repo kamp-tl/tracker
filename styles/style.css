@@ -26,6 +26,11 @@ body{
     border: 1px solid black;
     border-radius: 10px;
 }
+
+#heroImg {
+    height: 350px;
+}
+
 #name {
     display:flex;
     margin: 20px auto;
@@ -78,71 +83,4 @@ body{
 
 #hiddenCase {
     display: none;
-}
-
-#navCase {
-    display: flex;
-    justify-content: space-between;
-}
-
-#hiddenTextarea {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    margin-top:auto;
-}
-
-#textArea {
-    height:150px;
-    width: 300px;
-    margin:5%;
-    background-color: transparent;
-    border-radius: 10px;
-    border:3px solid black;
-    outline: 0px;
-    padding: 5px;
-}
-
-#plus {
-    height: 75px;
-    width: 75px;
-    margin: auto 10px 10px auto; 
-    border-radius: 50%;
-    align-self:flex-end;
-    background-color:#fcbf49;
-}
-
-#back {
-    margin-left: 5%;
-    margin-top :auto;
-    margin-bottom: auto;
-}
-
-#spacer {
-    flex-grow: 1;
-}
-
-#textWall {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size:x-large;
-    text-transform: capitalize;
-}
-
-.moveGroup {
-    border: 1px solid black;
-    display: flex;
-    width:95%;
-    border-radius:10px;
-    padding:5px;
-    font-size:small;
-    flex-direction: column;
-    margin-top: 2px;
-}
-
-.exerciseLine {
-    display:flex;
-    align-self: center;
-    justify-self: auto;
 }

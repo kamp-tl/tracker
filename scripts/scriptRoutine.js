@@ -9,6 +9,8 @@ let lastEnterTime = 0;
 let doubleEnterThres = 400;
 let inputStage = "Group";
 let activeGroup = null;
+let createTextEl = document.getElementById('helpCreateHeader')
+let createPEl = document.getElementById('helpCreateP')
 
 // let exampleWorkoutObject = {time:'12/12/2025', groups:groups[exercises[]],difficulty:'1'}
 // Same Function but with rest parameters.
@@ -26,19 +28,22 @@ let activeGroup = null;
 
 //this is the function called when the plus button is clicked or the Enter key is pressed
 function clickPlus() {
-  //this hides the testArea until the function is called for the first time
+  //this hides the textArea until the function is called for the first time
   if (hiddenTextarea.style.display == "") {
     hiddenTextarea.style.display = "flex";
+    textArea.focus();
   }
-  if (activeGroup == null) {
-    //if we are not in an exercise group, startGroup()
+  if (activeGroup == null && textArea.value != "") {
+    //if we are not in an exercise group and there is a value of textArea, start a group
     if (textArea.value.trim() != "") {
       startGroup();
+      createTextEl.style.display = 'none'
+      createPEl.style.display = 'none'
       helpTextEl.textContent = "Add Exercise Movement";
     }
   } else {
     //if we are inside an exercise group
-    if (inputStage === "Group") {
+    if (inputStage === "Group" && textArea.value != "") {
       //if we are in an exercise group, addExercise()
       currentExerciseLine = addExercise();
       inputStage = "sets"; // change the stage
@@ -50,6 +55,9 @@ function clickPlus() {
     } else if (inputStage === "reps") {
       addReps(); //adds the text to a variable 'reps' and concatenates both to the exercise
       inputStage = "Group"; // back to adding an exercise inside the group
+        createPEl.style.display = 'flex'
+        createPEl.textContent = 'Double click Enter to create a New Group'
+        createPEl.style.margin = 'auto'
       helpTextEl.textContent = "Add Exercise Movement";
       currentExerciseLine = null;
     }
@@ -63,7 +71,10 @@ function startGroup() {
   //let newItem = textArea.value;
   let newGroup = document.createElement("div");
   newGroup.classList.add("moveGroup");
-  newGroup.textContent = textArea.value;
+  let newName = document.createElement('p')
+  newName.classList.add('groupName')
+  newName.textContent = textArea.value;
+  newGroup.append(newName)
   textWallEl.appendChild(newGroup);
   textArea.value = "";
   activeGroup = newGroup;
@@ -110,6 +121,7 @@ document.addEventListener("keydown", function (event) {
       helpTextEl.textContent = "Add Movement Group";
       textArea.value = "";
       lastEnterTime = now;
+      createPEl.style.display = 'none'
       return;
     } else {
       clickPlus();
