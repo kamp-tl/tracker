@@ -12,20 +12,6 @@ let activeGroup = null;
 let createTextEl = document.getElementById('helpCreateHeader')
 let createPEl = document.getElementById('helpCreateP')
 
-// let exampleWorkoutObject = {time:'12/12/2025', groups:groups[exercises[]],difficulty:'1'}
-// Same Function but with rest parameters.
-// function getDevObject(name, age, ...skills) {
-//     let dev = {
-//       name: name,
-//       age: age,
-//       skills: skills,
-//     };
-
-//     return dev;
-//   }
-
-// function getWorkObject(time, difficulty,...groups)
-
 //this is the function called when the plus button is clicked or the Enter key is pressed
 function clickPlus() {
   //this hides the textArea until the function is called for the first time
@@ -48,11 +34,11 @@ function clickPlus() {
       currentExerciseLine = addExercise();
       inputStage = "sets"; // change the stage
       helpTextEl.textContent = "How many sets?";
-    } else if (inputStage === "sets") {
+    } else if (inputStage === "sets" && textArea.value != "") {
       addSets(); //adds the text to a variable 'sets'
       inputStage = "reps"; // change the stage
       helpTextEl.textContent = "How many reps?";
-    } else if (inputStage === "reps") {
+    } else if (inputStage === "reps" && textArea.value != "") {
       addReps(); //adds the text to a variable 'reps' and concatenates both to the exercise
       inputStage = "Group"; // back to adding an exercise inside the group
         createPEl.style.display = 'flex'
@@ -106,6 +92,7 @@ function addReps() {
 
   sets = null; // reset
 }
+
 
 document.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {

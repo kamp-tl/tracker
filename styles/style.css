@@ -4,7 +4,8 @@ html, body {
 body{
     display: flex;
     align-items: center;
-    height:100vh
+    height:100vh;
+    font-family: 'Knewave';
 }
 #bounds {
     width:360px;

@@ -83,10 +83,12 @@
 
 .help-create {
     text-align: center;
+    font-family: TASA Explorer;
+    font-weight: 400;
 }
 
 #helpCreateP {
-    padding-top: -2px;
+    padding-top: 0px;
     text-align: center;
 }
 
