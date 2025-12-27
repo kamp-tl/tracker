@@ -15,7 +15,7 @@ let checkButton = document.getElementById('check')
 
 //this is the function called when the plus button is clicked or the Enter key is pressed
 function clickPlus() {
-  //this hides the textArea until the function is called for the first time
+  //this hides the textArea and the checkButton until the function is called for the first time
   if (hiddenTextarea.style.display == "") {
     hiddenTextarea.style.display = "flex";
     textArea.focus();
@@ -57,6 +57,7 @@ function clickPlus() {
 function clickCheck() {
   if (hiddenTextarea.style.display == 'flex'){
     hiddenTextarea.style.display = ''
+    createPEl.style.display = ''
   }
   else if(hiddenTextarea.style.display == '') {
     let difRate = prompt('How hard was your workout?')

@@ -1,4 +1,8 @@
-#helpCreate {
+html, body {
+    font-family: TASA Explorer;
+}
+
+#helpCreateHeader {
     text-align: center;
 }
 
@@ -40,6 +44,7 @@
 
 
 #check{
+    margin-left: 75px;
     display: none;
     justify-content: center;
     align-items: center;
@@ -48,6 +53,7 @@
     margin-left: 5%;
     margin-top :auto;
     margin-bottom: auto;
+    margin-right: 10px;
 }
 
 #spacer {
@@ -75,8 +81,8 @@
 }
 
 .groupName {
-    font-size: small;
-    font-weight: 700;
+    font-size: large;
+    font-weight: 500;
     margin:0;
     padding:0;
 }
@@ -85,15 +91,18 @@
     display:flex;
     align-self: center;
     justify-self: auto;
+    margin: 2px
 }
 
 .help-create {
+    margin-top: 250px;
     text-align: center;
     font-family: TASA Explorer;
     font-weight: 400;
 }
 
 #helpCreateP {
+    margin:0;
     padding-top: 1px;
     text-align: center;
 }
@@ -107,7 +116,6 @@
     flex-direction: column;
     background-color: #d62828;
     border-radius: 10px;
-    /* text-align: center; */
 }
 /* 
 #bounts>#helpCreateP {
