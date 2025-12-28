@@ -1,17 +1,19 @@
-let buttonPlus = document.getElementById("plus");
-let hiddenTextarea = document.getElementById("hiddenTextarea");
-let textArea = document.getElementById("textArea");
-let textWallEl = document.getElementById("textWall");
-let helpTextEl = document.getElementById("helpText");
-let currentExerciseLine = null;
-let sets = null;
+//elements from the document 
+const buttonPlus = document.getElementById("plus");
+const hiddenTextarea = document.getElementById("hiddenTextarea");
+const textArea = document.getElementById("textArea");
+const textWallEl = document.getElementById("textWall");
+const helpTextEl = document.getElementById("helpText");
+const createTextEl = document.getElementById('helpCreateHeader')
+const createPEl = document.getElementById('helpCreateP')
+const checkButton = document.getElementById('check')
+//required global variables 
+let currentExerciseLine;
 let lastEnterTime = 0;
 let doubleEnterThres = 400;
 let inputStage = "Group";
-let activeGroup = null;
-let createTextEl = document.getElementById('helpCreateHeader')
-let createPEl = document.getElementById('helpCreateP')
-let checkButton = document.getElementById('check')
+let activeGroup;
+
 
 //this is the function called when the plus button is clicked or the Enter key is pressed
 function clickPlus() {
@@ -20,6 +22,7 @@ function clickPlus() {
     hiddenTextarea.style.display = "flex";
     textArea.focus();
     checkButton.style.display = 'flex'
+    createPEl.style.display = 'none'
   }
   if (activeGroup == null && textArea.value != "") {
     //if we are not in an exercise group and there is a value of textArea, start a group
@@ -57,7 +60,8 @@ function clickPlus() {
 function clickCheck() {
   if (hiddenTextarea.style.display == 'flex'){
     hiddenTextarea.style.display = ''
-    createPEl.style.display = ''
+    createPEl.style.display = 'none'
+    
   }
   else if(hiddenTextarea.style.display == '') {
     let difRate = prompt('How hard was your workout?')
@@ -106,6 +110,9 @@ function addReps() {
   sets = null; // reset
 }
 
+function backButton () {
+console.log('hi')
+}
 
 document.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {

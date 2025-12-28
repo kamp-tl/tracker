@@ -44,13 +44,14 @@ html, body {
 
 
 #check{
-    margin-left: 75px;
+    margin-left: 60px;
     display: none;
     justify-content: center;
     align-items: center;
 }
 #back {
-    margin-left: 5%;
+    padding: 8px;
+    border-radius: 15%;
     margin-top :auto;
     margin-bottom: auto;
     margin-right: 10px;
