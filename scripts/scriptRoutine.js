@@ -25,7 +25,7 @@ function clickPlus() {
     checkButton.style.display = 'flex'
     createPEl.style.display = 'none'
   }
-  if (activeGroup == null && textArea.value.trim != "") {
+  if (activeGroup == null && textArea.value.trim != ""&& validateText() == true) {
     //if we are not in an exercise group and there is a value of textArea, start a group
     if (textArea.value.trim() != "") {
       startGroup();
@@ -35,16 +35,16 @@ function clickPlus() {
     }
   } else {
     //if we are inside an exercise group
-    if (inputStage === "Group" && textArea.value != "") {
+    if (inputStage === "Group" && textArea.value != ""&& validateText() == true) {
       //if we are in an exercise group, addExercise()
       currentExerciseLine = addExercise();
       inputStage = "sets"; // change the stage
       helpTextEl.textContent = "How many sets?";
-    } else if (inputStage === "sets" && textArea.value != "") {
+    } else if (inputStage === "sets" && textArea.value != "" && validateNum() == true) {
       addSets(); //adds the text to a variable 'sets'
       inputStage = "reps"; // change the stage
       helpTextEl.textContent = "How many reps?";
-    } else if (inputStage === "reps" && textArea.value != "") {
+    } else if (inputStage === "reps" && textArea.value != ""&& validateNum() == true) {
       addReps(); //adds the text to a variable 'reps' and concatenates both to the exercise
       inputStage = "Group"; // back to adding an exercise inside the group
         createPEl.style.display = 'flex'
@@ -117,29 +117,17 @@ window.location.href = '../index.html' //bom
 // JS validation
 function validateText(){ 
   let value = textArea.value.trim()
-  let pattern = /^[a-zA-Z0-9 ]+$/
-  if (pattern.test(value)){
-    console.log('valid')
-  }
-  else{
-    console.log('err')
-  }
+  let pattern = /^[a-zA-Z]+$/
   return pattern.test(value)
 }
 
 function validateNum(){
   let value = textArea.value.trim()
   let pattern = /^[0-9]+$/
-if(pattern.test(value)){
-  console.log('valid')
-}
-else {
-  console.log('err')
-}
-return pattern.test(value)
+  return pattern.test(value)
 }
 
-let checkboxes = document.getElementsByName('y/n')
+let checkboxes = document.getElementsByName('y/n') //iteration
 checkboxes.forEach(function(currentBox) {
   currentBox.addEventListener('change',
   () => {
@@ -149,6 +137,10 @@ checkboxes.forEach(function(currentBox) {
   }
   )
 })
+
+actionForm.addEventListener('submit', (e) =>{actionForm.style.display = 'none'
+e.preventDefault()} 
+)
 
 document.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
