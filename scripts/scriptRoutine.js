@@ -1,6 +1,6 @@
 //elements from the document 
 const buttonPlus = document.getElementById("plus");
-const hiddenTextarea = document.getElementById("hiddenTextarea");
+const hiddenTextarea = document.querySelector('section')
 const textArea = document.getElementById("textArea");
 const textWallEl = document.getElementById("textWall");
 const helpTextEl = document.getElementById("helpText");
@@ -61,11 +61,11 @@ function clickCheck() {
   if (hiddenTextarea.style.display == 'flex'){
     hiddenTextarea.style.display = ''
     createPEl.style.display = 'none'
-    
+    checkButton.textContent = 'completed workout'
   }
   else if(hiddenTextarea.style.display == '') {
-    let difRate = prompt('How hard was your workout?')
-    // window.location.reload()
+    let difRate = prompt('How hard was your workout 1-10?')
+    window.location.reload()
   }
 }
 
