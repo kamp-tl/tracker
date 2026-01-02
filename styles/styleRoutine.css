@@ -33,13 +33,22 @@ html, body {
     padding: 5px;
 }
 
-#plus, #check {
+#plus, #check, #back {
     height: 75px;
     width: 75px;
-    margin: auto 10px 10px auto; 
+    margin: 10px; 
     border-radius: 25%;
-    align-self:center;
     background-color:#fcbf49;
+}
+#check{
+    /* margin-left: 60px; */
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+#back {
+    padding: 8px;
+    border-radius: 25%;
 }
 
 input[type='submit'] {
@@ -51,21 +60,6 @@ input[type='checkbox'] {
     accent-color:#fcbf49
 }
 
-
-
-#check{
-    margin-left: 60px;
-    display: none;
-    justify-content: center;
-    align-items: center;
-}
-#back {
-    padding: 8px;
-    border-radius: 15%;
-    margin-top :auto;
-    margin-bottom: auto;
-    margin-right: 10px;
-}
 
 #spacer {
     flex-grow: 1;

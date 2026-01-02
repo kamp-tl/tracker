@@ -15,10 +15,8 @@ let inputStage = "Group";
 let activeGroup;
 let actionForm = document.getElementById('actionForm')
 
-
-//this is the function called when the plus button is clicked or the Enter key is pressed
-function clickPlus() {
-  if (checkButton.style.display == 'flex'){
+function clickPlus() { //this is the function called when the plus button is clicked or the Enter key is pressed
+  if (checkButton.style.display == 'flex'){ //if the checkButton is visible 
     checkButton.textContent = '✓'
   }
   //this hides the textArea and the checkButton until the function is called for the first time
@@ -28,16 +26,16 @@ function clickPlus() {
     checkButton.style.display = 'flex'
     createPEl.style.display = 'none'
   }
+  //if we are not in an exercise group and there is a value of textArea, start a group
   if (activeGroup == null && textArea.value.trim != ""&& validateText() == true) {
-    //if we are not in an exercise group and there is a value of textArea, start a group
+    
     if (textArea.value.trim() != "") {
       startGroup();
       createTextEl.style.display = 'none'
       createPEl.style.display = 'none'
       helpTextEl.textContent = "Add Exercise Movement";
     }
-  } else {
-    //if we are inside an exercise group
+  } else {//if we are inside an exercise group
     if (inputStage === "Group" && textArea.value != ""&& validateText() == true) {
       //if we are in an exercise group, addExercise()
       currentExerciseLine = addExercise();
