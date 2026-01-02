@@ -117,7 +117,7 @@ window.location.href = '../index.html' //bom
 // JS validation
 function validateText(){ 
   let value = textArea.value.trim()
-  let pattern = /^[a-zA-Z]+$/
+  let pattern = /^[a-zA-Z ]+$/
   return pattern.test(value)
 }
 
