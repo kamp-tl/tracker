@@ -1,6 +1,6 @@
 //elements from the document 
-const buttonPlus = document.getElementById("plus");
-const hiddenTextarea = document.querySelector('section')
+const buttonPlus = document.getElementById("plus"); // .getElementById()
+const hiddenTextarea = document.querySelector('section') // .querySelector()
 const textArea = document.getElementById("textArea");
 const textWallEl = document.getElementById("textWall");
 const helpTextEl = document.getElementById("helpText");
@@ -13,6 +13,7 @@ let lastEnterTime = 0;
 let doubleEnterThres = 400;
 let inputStage = "Group";
 let activeGroup;
+let actionForm = document.getElementById('actionForm')
 
 
 //this is the function called when the plus button is clicked or the Enter key is pressed
@@ -20,11 +21,11 @@ function clickPlus() {
   //this hides the textArea and the checkButton until the function is called for the first time
   if (hiddenTextarea.style.display == "") {
     hiddenTextarea.style.display = "flex";
-    textArea.focus();
+    hiddenTextarea.lastChild.focus //parent-child element navigation 
     checkButton.style.display = 'flex'
     createPEl.style.display = 'none'
   }
-  if (activeGroup == null && textArea.value != "") {
+  if (activeGroup == null && textArea.value.trim != "") {
     //if we are not in an exercise group and there is a value of textArea, start a group
     if (textArea.value.trim() != "") {
       startGroup();
@@ -65,20 +66,20 @@ function clickCheck() {
   }
   else if(hiddenTextarea.style.display == '') {
     let difRate = prompt('How hard was your workout 1-10?')
-    window.location.reload()
+    window.location.reload() //bom
   }
 }
 
 function startGroup() {
   //create a div to group the exercises
   //let newItem = textArea.value;
-  let newGroup = document.createElement("div");
+  let newGroup = document.createElement("div"); // createElement()
   newGroup.classList.add("moveGroup");
   let newName = document.createElement('p')
   newName.classList.add('groupName')
   newName.textContent = textArea.value;
   newGroup.append(newName)
-  textWallEl.appendChild(newGroup);
+  textWallEl.appendChild(newGroup); // appendChild()
   textArea.value = "";
   activeGroup = newGroup;
   //create a tracking variable and a div to hold it, then append the div inside the group
@@ -111,8 +112,43 @@ function addReps() {
 }
 
 function backButton () {
-window.location.href = '../index.html'
+window.location.href = '../index.html' //bom
 }
+// JS validation
+function validateText(){ 
+  let value = textArea.value.trim()
+  let pattern = /^[a-zA-Z0-9 ]+$/
+  if (pattern.test(value)){
+    console.log('valid')
+  }
+  else{
+    console.log('err')
+  }
+  return pattern.test(value)
+}
+
+function validateNum(){
+  let value = textArea.value.trim()
+  let pattern = /^[0-9]+$/
+if(pattern.test(value)){
+  console.log('valid')
+}
+else {
+  console.log('err')
+}
+return pattern.test(value)
+}
+
+let checkboxes = document.getElementsByName('y/n')
+checkboxes.forEach(function(currentBox) {
+  currentBox.addEventListener('change',
+  () => {
+    checkboxes.forEach((checked) =>
+    {if(checked != currentBox )
+    checked.checked = false})
+  }
+  )
+})
 
 document.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {

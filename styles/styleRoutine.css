@@ -118,7 +118,7 @@ html, body {
     background-color: #d62828;
     border-radius: 10px;
 }
-/* 
-#bounts>#helpCreateP {
-    justify-content: center;
-} */
+
+form {
+    text-align: center;
+}
