@@ -1,11 +1,12 @@
 html, body {
     background-color: #eae2b7;
+    
 }
 body{
     display: flex;
     align-items: center;
     height:100vh;
-    font-family: 'Knewave';
+    font-family: TASA Explorer;
 }
 #bounds {
     width:360px;

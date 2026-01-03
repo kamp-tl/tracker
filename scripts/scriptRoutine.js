@@ -28,12 +28,12 @@ function clickPlus() { //this is the function called when the plus button is cli
   }
   //if we are not in an exercise group and there is a value of textArea, start a group
   if (activeGroup == null && textArea.value.trim != ""&& validateText() == true) {
-    
     if (textArea.value.trim() != "") {
       startGroup();
       createTextEl.style.display = 'none'
       createPEl.style.display = 'none'
       helpTextEl.textContent = "Add Exercise Movement";
+      inputStage = 'Group'
     }
   } else {//if we are inside an exercise group
     if (inputStage === "Group" && textArea.value != ""&& validateText() == true) {
@@ -82,6 +82,7 @@ function startGroup() {
   textWallEl.appendChild(newGroup);
   textArea.value = "";
   activeGroup = newGroup;
+  actionForm.style.display = 'none'
   //create a tracking variable and a div to hold it, then append the div inside the group
   //if there is time under tension then create a second variable
   //that adds up the total reps and the time under tension in each group
@@ -123,7 +124,7 @@ function validateText(){
 
 function validateNum(){
   let value = textArea.value.trim()
-  let pattern = /^[0-9]+$/
+  let pattern = /^[0-9]+s?$/
   return pattern.test(value)
 }
 
@@ -149,7 +150,7 @@ document.addEventListener("keydown", function (event) {
     const now = Date.now();
     //save the time anytime Enter is pressed
 
-    if (now - lastEnterTime < doubleEnterThres) {
+    if (now - lastEnterTime < doubleEnterThres && inputStage == 'Group') {
       //double enter
       activeGroup = null;
       inputStage = "Group";

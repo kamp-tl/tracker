@@ -2,6 +2,10 @@ html, body {
     font-family: TASA Explorer;
 }
 
+input[type='submit'] {
+    font-family: TASA Explorer;
+}
+
 #helpCreateHeader {
     text-align: center;
 }
